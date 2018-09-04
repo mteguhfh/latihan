@@ -1,0 +1,174 @@
+{
+  "user": [
+    {
+      "id": 1,
+      "nama": "baren",
+      "username": "baron",
+      "password": "baron123"
+    },
+    {
+      "id": 2,
+      "nama": "louiss",
+      "username": "louis",
+      "password": "louis123"
+    }
+  ],
+  "lalalist": [
+    {
+      "lol": "bloblo",
+      "lal": "https://www.sahabatnestle.co.id/uploads/media/article/0001/03/thumb_2971_article_image_723x480.jpeg",
+      "id": 1
+    },
+    {
+      "id": 2,
+      "lol": "blabala",
+      "lal": "http://cdn2.tstatic.net/tribunnews/foto/bank/images/ilustrasi-buah-buahan-bewarna-warni_20160627_185752.jpg"
+    },
+    {
+      "id": 3,
+      "lol": "blabala",
+      "lal": "http://cdn2.tstatic.net/tribunnews/foto/bank/images/ilustrasi-buah-buahan-bewarna-warni_20160627_185752.jpg"
+    }
+  ],
+  "book": [
+    {
+      "id": 1,
+      "nama": "android",
+      "jam": "09:00",
+      "harga": 10000,
+      "slot": [
+        {
+          "id": 1,
+          "sit": "A1",
+          "status": "sold"
+        },
+        {
+          "id": 2,
+          "sit": "A2",
+          "status": "available"
+        },
+        {
+          "id": 3,
+          "sit": "A3",
+          "status": "sold"
+        },
+        {
+          "id": 4,
+          "sit": "A4",
+          "status": "onprogress"
+        },
+        {
+          "id": 5,
+          "sit": "A5",
+          "status": "sold"
+        },
+        {
+          "id": 6,
+          "sit": "A6",
+          "status": "available"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "nama": "ios",
+      "jam": "09:00",
+      "harga": 10000,
+      "slot": [
+        {
+          "id": 1,
+          "sit": "A1",
+          "status": "available"
+        },
+        {
+          "id": 2,
+          "sit": "A2",
+          "status": "available"
+        },
+        {
+          "id": 3,
+          "sit": "A3",
+          "status": "available"
+        },
+        {
+          "id": 4,
+          "sit": "A4",
+          "status": "available"
+        },
+        {
+          "id": 5,
+          "sit": "A5",
+          "status": "available"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "nama": "android",
+      "jam": "12:00",
+      "harga": 10000,
+      "slot": [
+        {
+          "id": 1,
+          "sit": "A1",
+          "status": "available"
+        },
+        {
+          "id": 2,
+          "sit": "A2",
+          "status": "available"
+        },
+        {
+          "id": 3,
+          "sit": "A3",
+          "status": "available"
+        },
+        {
+          "id": 4,
+          "sit": "A4",
+          "status": "onprogress"
+        },
+        {
+          "id": 5,
+          "sit": "A5",
+          "status": "available"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "nama": "ios",
+      "jam": "12:00",
+      "harga": 10000,
+      "slot": [
+        {
+          "id": 1,
+          "sit": "A1",
+          "status": "available"
+        },
+        {
+          "id": 2,
+          "sit": "A2",
+          "status": "available"
+        },
+        {
+          "id": 3,
+          "sit": "A3",
+          "status": "available"
+        },
+        {
+          "id": 4,
+          "sit": "A4",
+          "status": "onprogress"
+        },
+        {
+          "id": 5,
+          "sit": "A5",
+          "status": "available"
+        }
+      ]
+    }
+  ],
+  "transaction": [
+  ]
+}
