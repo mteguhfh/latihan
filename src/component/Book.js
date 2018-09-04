@@ -1,4 +1,5 @@
 import React,{Component} from "react";
+import {Redirect} from 'react-router-dom';
 import {connect} from 'react-redux';
 import axios from 'axios';
 import {API_URL} from '../support/api-url/apiurl';
@@ -11,9 +12,8 @@ class Book extends Component{
         if(this.state.page===""){
         this.doGet();
         }
-        else{
+        else if(this.state.page==="detail"){
         this.doPage();
-            
         }
         
     }
@@ -80,13 +80,13 @@ class Book extends Component{
             {
                 data.slot[this.refs[i].value-1].status="sold"
                 
-            sit.push(a[i].value);
+            sit.push(data.slot[this.refs[i].value-1].sit);
             }
             
             
         }   
         
-        
+        if(sit.length!==0){
                 axios.put(API_URL +'/book/'+this.state.bookID,{
                             id:data.id,
                             nama:data.nama,
@@ -94,7 +94,6 @@ class Book extends Component{
                             harga:data.harga,
                             slot:data.slot
                           }).then((scs)=>{
-                            alert("success");
                             console.log(scs);        
                           }).catch((err)=>{
                             console.log(err);
@@ -108,17 +107,28 @@ class Book extends Component{
                     totalHarga:totalHarga,
                     slot:sit,
                   }).then((res) => {
+                    alert("success");
                     console.log(res);  
                   }).catch((err) => {
                       alert("Add Error!");
                       console.log(err);
                   });   
                 
-                       
-        this.doBack();
-       
+                  
+        this.doRedirect();
+                }else{
+                    alert("pls input");
+                }
     }
-
+    doRedirect(){
+        axios.get(API_URL+'/book')
+        .then(scs=>{
+            this.setState({data:scs.data,page:"done",bookID:0,slot:[]});
+            
+        }).catch(err=>{
+            alert("error");
+        })
+    }
     doPage(no){
         axios.get(API_URL+'/book/'+no)
         .then(scs=>{ 
@@ -163,48 +173,52 @@ class Book extends Component{
                 </div>    
                     </div>);
         }//if
-        return (
+        else if(this.state.page==="detail"){
+            return (
 
-            <div className="container">
-            <div className="col-xs-4">
-            <div className="row">
-            {this.renderPageDetail()}
-            </div>
-            <p/><input type="button" className="btn btn-success"  value="Add" onClick={()=>this.doBook(this.refs)}/>
-            <input type="button" className="btn btn-success"  value="Back" onClick={this.doBack}/>
-            </div>
-            <div className="col-xs-8">
-            <div className="table-responsive">
-                    <table className="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                      <thead>
+                <div className="container">
+                <div className="col-xs-4">
+                <div className="row">
+                {this.renderPageDetail()}
+                </div>
+                <p/><input type="button" className="btn btn-success"  value="Add" onClick={()=>this.doBook(this.refs)}/>
+                <input type="button" className="btn btn-success"  value="Back" onClick={this.doBack}/>
+                </div>
+                <div className="col-xs-8">
+                <div className="table-responsive">
+                        <table className="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                          <thead>
+                            <tr>
+                              <th>Icon</th>
+                              <th>Keterangan</th>
+                            </tr>
+                        </thead>
+                        <tbody>
                         <tr>
-                          <th>Icon</th>
-                          <th>Keterangan</th>
+                            <td><input type="checkbox"/></td>
+                            <td>available</td>
                         </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td><input type="checkbox"/></td>
-                        <td>available</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox"  checked/></td>
-                        <td>choosing</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox"  disabled/></td>
-                        <td>sold</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox"  checked disabled/></td>
-                        <td>onprogress</td>
-                    </tr>
-                    </tbody>
-                         
-                    </table>
-                  </div>
-            </div>    
-                </div>);
+                        <tr>
+                            <td><input type="checkbox"  checked/></td>
+                            <td>choosing</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"  disabled/></td>
+                            <td>sold</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"  checked disabled/></td>
+                            <td>onprogress</td>
+                        </tr>
+                        </tbody>
+                             
+                        </table>
+                      </div>
+                </div>    
+                    </div>);
+            }//else if
+            return <Redirect to="/transaction" />;
+        
     }
 }
 const mapStateToProps = (state) =>{

@@ -9,6 +9,7 @@ import LoginPage from './component/Login';
 import RegisPage from './component/Register';
 import MovieManage from './component/Moviemanage';
 import Book from './component/Book';
+import Transaction from './component/transaction';
 class App extends Component {
   state = {sudahlogin:false, uname:"yos"}
   
@@ -36,6 +37,7 @@ class App extends Component {
           <Route path="/Regis" component={RegisPage}/>
           <Route path="/MovieManage" component={MovieManage}/>
           <Route path="/Book" component={Book}/>
+          <Route path="/Transaction" component={Transaction}/>
           </div>
       </div>
         
